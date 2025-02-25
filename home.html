@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>EASY CASH OUT</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #03055B;
+height: 100vh;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+color: #fff;
+}
+
+.investment-options {
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 0;
+}
+
+.investment-options li {
+font-size: 20px;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+}
+
+.investment-options input[type="radio"] {
+margin-right: 10px;
+}
+
+.invest-button {
+background-color: #4CAF50;
+color: #fff;
+padding: 10px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+font-weight: bold;
+font-size: 18px;
+margin-top: 20px;
+}
+
+.invest-button:hover {
+background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+<h3 style="font-weight: bolder; font-size: 20px;">WELCOME TO EASY CASH OUT</h3>
+<h4 style="color:white; margin-top: 20px;">You can now choose how much you want to invest to cash out a price of your choice.</h4>
+<h3 style="font-size: 25px; margin-top: 20px;">Investment Options:</h3>
+<div style="display: flex; flex-direction: column; align-items: center;">
+<ul class="investment-options">
+<li><input type="radio" id="option1" name="investment-option" value="₦200 for ₦4,000"><label for="option1">₦200 for ₦4,000</label></li>
+<li><input type="radio" id="option2" name="investment-option" value="₦4,000 for ₦8,000"><label for="option2">₦4,000 for ₦8,000</label></li>
+<li><input type="radio" id="option3" name="investment-option" value="₦8,000 for ₦16,000"><label for="option3">₦8,000 for ₦16,000</label></li>
+<li><input type="radio" id="option4" name="investment-option" value="₦16,000 for ₦32,000"><label for="option4">₦16,000 for ₦32,000</label></li>
+</ul>
+<button class="invest-button">Invest</button>
+</div>
+<script>
+const investButton = document.querySelector('.invest-button');
+investButton.addEventListener('click', () => {
+const selectedOption = document.querySelector('input[name="investment-option"]:checked');
+if (selectedOption) {
+swal("Success!", `You have selected: ${selectedOption.value}`, "success").then(() => {
+window.location.href = "nextpage.html?amount=" + selectedOption.value;
+});
+} else {
+swal("Error!", "Please select an investment option", "error");
+}
+});
+</script>
+</body>
+</html>

@@ -2,16 +2,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>pay</title>
+  <title>Pay</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<h1></h1>
-<h2>Your selected investment plan: <span id="amount"></span></h2>
+  <div class="container" style="margin-top: 20px; text-align: center;">
+    <h2>Your selected investment plan: <span id="amount"></span></h2>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Make Payment</h5>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#opayDetails">Pay with OPay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<script>
-const urlParams = new URLSearchParams(window.location.search);
-const amount = urlParams.get('amount');
-document.getElementById('amount').innerHTML = amount;
-</script>
+  <!-- Modal -->
+  <div class="modal fade" id="opayDetails" tabindex="-1" role="dialog" aria-labelledby="opayDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="opayDetailsLabel">OPay Account Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>OPay Account Number: 9074549203</p>
+          <p>Account Name: chibuike Gideon oyoh</p>
+          <p>Please make payment to the above account details.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount');
+    document.getElementById('amount').innerHTML = amount;
+  </script>
 </body>
 </html>
